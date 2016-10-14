@@ -19,8 +19,10 @@ print("".join(displayGuess))
 #enter initial guess
 guess = input("Enter a guess: ")
 
-#main 
+#main
 while secretWord != "".join(displayGuess):
+"""asks for one more guess after word matches
+   probably an issue with while loop"""   
     if isValidGuess(guess) is True:
         ct = 0
         if guess in secretWord:
