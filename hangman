@@ -1,0 +1,35 @@
+"""
+Hangman
+"""
+import random
+
+def isValidGuess(guess):
+    if len(guess) == 1 and guess.isalpha():
+        return True
+    return False
+
+secretWord = "hello"
+
+displayGuess = []
+for ch in secretWord:
+    displayGuess.append("-")
+
+print("".join(displayGuess))
+
+#enter initial guess
+guess = input("Enter a guess: ")
+
+#main 
+while secretWord != "".join(displayGuess):
+    if isValidGuess(guess) is True:
+        ct = 0
+        if guess in secretWord:
+            for ch in secretWord:
+                if ch == guess:
+                    displayGuess[ct] = guess
+                ct += 1
+        print("".join(displayGuess))
+        guess = input("Enter a guess: ")
+    else:
+        guess = input("Enter a valid guess: ")
+print("You win")
